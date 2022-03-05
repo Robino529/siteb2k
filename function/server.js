@@ -2,11 +2,11 @@ const http = require('http');
 const fs = require('fs');
 const hostname = 'localhost';
 const port = 3000;
-const secret = fs.readFileSync("secret.txt", "utf8");
+const secret = fs.readFileSync("secret.txt", "utf8").trim();
 const server = http.createServer((req, res) => {
   if(req.method === "POST" && req.url === "/app/setSeason"){
     res.setHeader('Content-Type', 'text/plain');
-    if(req.headers.authorization === secret){
+    if(req.headers.authorization.trim() === secret){
       try {
         fs.writeFileSync("season.txt", req.body);
         res.statusCode = 200;
