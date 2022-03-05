@@ -29,7 +29,7 @@ li a:hover:not(.active) {
 .logo {
 	background-color: aqua;
 	text-align: center;
-	margin: 25;
+	margin: 25px;
 	display: block;
 }
 
