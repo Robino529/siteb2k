@@ -7,14 +7,20 @@ const server = http.createServer((req, res) => {
   if(req.method === "POST" && req.url === "/app/setSeason"){
     res.setHeader('Content-Type', 'text/plain');
     if(req.headers.authorization.trim() === secret){
-      try {
-        fs.writeFileSync("season.txt", req.body);
-        res.statusCode = 200;
-        res.end("Success\n");
-      }catch (e) {
-        res.statusCode = 500;
-        res.end("Error while writing file\n");
-      }
+        var body = "";
+        req.on('data', function(data) {
+          body += data;
+        });
+        req.on('end', function() {
+          try {
+            fs.writeFileSync("season.txt", body);
+          }catch (e) {
+            res.statusCode = 500;
+            res.end("Error while writing file\n");
+          }
+          res.statusCode = 200;
+          res.end("Success\n");
+        });
     }else{
       res.statusCode = 403;
       res.end("No.\n");
