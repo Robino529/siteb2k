@@ -38,7 +38,8 @@ li a:hover:not(.active) {
 	color: rgb(138, 43, 226);
 }
 li:first-child{
-	flex-grow: 2;
+	flex-shrink: 0;
+	width: auto;
 }
 .active {
 	background-color: #4CAF50;
