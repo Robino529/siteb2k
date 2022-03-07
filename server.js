@@ -11,10 +11,10 @@ function* entries(obj) {
     }
 }
 function replaceStuff() {
-    const files = fs.readdirSync("/root/pages/");
+    const files = fs.readdirSync(path.join(__dirname,"pages/"));
     files.forEach(function (file) {
         if(file.endsWith(".html")){
-            let result = fs.readFileSync(path.join("/root/pages/", file), 'utf8');
+            let result = fs.readFileSync(path.join(path.join(__dirname,"pages/"), file), 'utf8');
             for (let [key, value] of entries(reps)) {
                 result = result.replace(key, value);
             }
@@ -22,7 +22,7 @@ function replaceStuff() {
             fs.writeFileSync(path.join("/var/www/play.timoreo.fr/html/", name), result, 'utf8');
         }else{
             const name = path.basename(file);
-            fs.copyFileSync(path.join("/root/pages/",file),path.join("/var/www/play.timoreo.fr/html/",name));
+            fs.copyFileSync(path.join(path.join(__dirname,"pages/"),file),path.join("/var/www/play.timoreo.fr/html/",name));
         }
     });
 }
