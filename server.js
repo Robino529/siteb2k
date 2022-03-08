@@ -19,10 +19,10 @@ function replaceStuff() {
                 result = result.replace(key, value);
             }
             const name = path.basename(file);
-            fs.writeFileSync(path.join("/var/www/play.timoreo.fr/html/", name), result, 'utf8');
+            fs.writeFileSync(path.join("/var/www/bitume2000.fr/html/", name), result, 'utf8');
         }else{
             const name = path.basename(file);
-            fs.copyFileSync(path.join(path.join(__dirname,"pages/"),file),path.join("/var/www/play.timoreo.fr/html/",name));
+            fs.copyFileSync(path.join(path.join(__dirname,"pages/"),file),path.join("/var/www/bitume2000.fr/html/",name));
         }
     });
 }
