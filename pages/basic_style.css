@@ -1,5 +1,5 @@
 body {
-	background-color: black;
+	background: #ffbf00;
 }
 
 ul {
@@ -16,7 +16,6 @@ ul {
 
 li {
 	float: left;
-	width: 100%;
 }
 
 li a {
@@ -37,10 +36,8 @@ li a:hover:not(.active) {
 	display: block;
 	color: rgb(138, 43, 226);
 }
-li:first-child{
-	flex-shrink: 0;
-	width: auto;
-}
+
 .active {
 	background-color: #4CAF50;
 }
+
