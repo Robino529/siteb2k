@@ -48,3 +48,8 @@ li a:hover:not(.active) {
 	background-color: #4CAF50;
 }
 
+p #CS{
+	text-align: center;
+    	color: darkred;
+    	margin: 10em;
+}
